@@ -11,3 +11,13 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
+  - name: 'Block #2'
+    task:
+      secrets:
+        - name: SEMGREP_APP_TOKEN
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - '   checkout'
+            - '   sudo pip install semgrep'
+            - '   semgrep ci'
